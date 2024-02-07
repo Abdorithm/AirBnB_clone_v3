@@ -104,5 +104,8 @@ def search_places():
         valid = all(amenity_id in place_amenities_id
                     for amenity_id in amenities_id)
         if valid:
-            filtered_places.append(place.to_dict())
+            place_dict = place.to_dict()
+            del place_dict['amenities']
+            filtered_places.append(place_dict)
+
     return jsonify(filtered_places)
