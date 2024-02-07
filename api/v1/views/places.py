@@ -76,7 +76,7 @@ def place_city(city_id=None):
 def search_places():
     data = request.get_json()
 
-    if not data:
+    if data is None:
         abort(400, 'Not a JSON')
 
     states_id = data.get('states', [])
